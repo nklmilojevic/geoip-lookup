@@ -1,0 +1,25 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: buildpack-deps:latest
+    steps:
+      - checkout
+      - setup_remote_docker
+      - run:
+          name: Login to docker
+          command: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+      - run:
+          name: Docker build
+          command: docker build --rm=false -t ${IMAGE_NAME}:$CIRCLE_TAG -t ${IMAGE_NAME}:latest .
+      - run:
+          name: Push image to Dockerhub
+          command: echo "${IMAGE_NAME}:$CIRCLE_TAG" "${IMAGE_NAME}:latest" | xargs -n 1 docker push
+workflows:
+  version: 2
+  build_docker:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
