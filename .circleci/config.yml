@@ -9,10 +9,10 @@ jobs:
           command: echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USERNAME --password-stdin
       - run:
           name: Docker build
-          command: docker build --rm=false -t ${IMAGE_NAME}:latest .
+          command: docker build --rm=false -t ${DOCKER_USERNAME}/${IMAGE_NAME}:latest .
       - run:
           name: Push image to Dockerhub
-          command: docker push ${IMAGE_NAME}:latest
+          command: docker push ${DOCKER_USERNAME}/${IMAGE_NAME}:latest
 workflows:
   version: 2
   build_docker:
