@@ -1,14 +1,12 @@
 version: 2
 jobs:
   build:
-    docker:
-      - image: buildpack-deps:latest
+    machine: true
     steps:
       - checkout
-      - setup_remote_docker
       - run:
           name: Login to docker
-          command: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+          command: echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USERNAME --password-stdin
       - run:
           name: Docker build
           command: docker build --rm=false -t ${IMAGE_NAME}:$CIRCLE_TAG -t ${IMAGE_NAME}:latest .
