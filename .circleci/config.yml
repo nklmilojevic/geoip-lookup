@@ -9,10 +9,10 @@ jobs:
           command: echo "$DOCKER_PASSWORD" | docker login --username $DOCKER_USERNAME --password-stdin
       - run:
           name: Docker build
-          command: docker build --rm=false -t ${IMAGE_NAME}:$CIRCLE_TAG -t ${IMAGE_NAME}:latest .
+          command: docker build --rm=false -t ${IMAGE_NAME}:latest .
       - run:
           name: Push image to Dockerhub
-          command: echo "${IMAGE_NAME}:$CIRCLE_TAG" "${IMAGE_NAME}:latest" | xargs -n 1 docker push
+          command: docker push ${IMAGE_NAME}:latest
 workflows:
   version: 2
   build_docker:
