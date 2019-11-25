@@ -4,8 +4,12 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [packages]
-flask = "==1.1.1"
-maxminddb = "==1.5.1"
+flask = "*"
+maxminddb = "*"
+uwsgi = "*"
 
 [requires]
-python_version = "3.7.4"
+python_version = "3.8.0"
+
+[dev-packages]
+pylint = "*"
