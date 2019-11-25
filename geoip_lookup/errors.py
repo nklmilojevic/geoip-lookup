@@ -1,5 +1,6 @@
-from geoip_lookup import app
 from flask import jsonify
+
+from geoip_lookup import app
 
 
 @app.errorhandler(400)
@@ -9,10 +10,7 @@ def bad_request(msg):
     :param msg: Human readable error message
     :return: JSON formatted API response with return code
     """
-    response = dict(
-        status='error',
-        msg=str(msg)
-    )
+    response = dict(status="error", msg=str(msg))
     return jsonify(response), 400
 
 
@@ -23,10 +21,7 @@ def forbidden(msg):
     :param msg: Human readable error message
     :return: JSON formatted API response with return code
     """
-    response = dict(
-        status='error',
-        msg=str(msg)
-    )
+    response = dict(status="error", msg=str(msg))
     return jsonify(response), 403
 
 
@@ -37,10 +32,7 @@ def page_not_found(msg):
     :param msg: Human readable error message
     :return: JSON formatted API response with return code
     """
-    response = dict(
-        status='error',
-        msg=str(msg)
-    )
+    response = dict(status="error", msg=str(msg))
     return jsonify(response), 404
 
 
@@ -51,10 +43,7 @@ def method_not_allowed(msg):
     :param msg: Human readable error message
     :return: JSON formatted API response with return code
     """
-    response = dict(
-        status='error',
-        msg=str(msg)
-    )
+    response = dict(status="error", msg=str(msg))
     return jsonify(response), 405
 
 
@@ -65,10 +54,7 @@ def im_a_teapot(msg):
     :param msg: Human readable error message
     :return: JSON formatted API response with return code
     """
-    response = dict(
-        status='error',
-        msg=str(msg)
-    )
+    response = dict(status="error", msg=str(msg))
     return jsonify(response), 418
 
 
@@ -79,10 +65,7 @@ def internal_server_error(msg):
     :param msg: Human readable error message
     :return: JSON formatted API response with return code
     """
-    response = dict(
-        status='error',
-        msg=str(msg)
-    )
+    response = dict(status="Check your IP address", msg=str(msg))
     return jsonify(response), 500
 
 
@@ -93,8 +76,5 @@ def service_unavailable(msg):
     :param msg: Human readable error message
     :return: JSON formatted API response with return code
     """
-    response = dict(
-        status='error',
-        msg=str(msg)
-    )
+    response = dict(status="error", msg=str(msg))
     return jsonify(response), 503
