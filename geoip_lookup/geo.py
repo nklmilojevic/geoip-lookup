@@ -1,7 +1,8 @@
+import ipaddress
 import logging
 
 import maxminddb
-from flask import jsonify
+from flask import jsonify, request
 
 from geoip_lookup import app, errors
 
@@ -24,7 +25,15 @@ def error_response(msg, rc):
     return jsonify({"status": "error", "msg": str(msg)}), rc
 
 
-@app.route("/<ip_address>")
+@app.route("/")
+def client_ip():
+    ip_address = request.remote_addr
+    geo_data = reader.get(ip_address)
+    return geo_data
+
+
+@app.route("/ip/<ip_address>")
 def ip(ip_address):
+    ipaddress.ip_address(ip_address)
     geo_data = reader.get(ip_address)
     return geo_data
