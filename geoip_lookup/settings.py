@@ -1,7 +1,7 @@
-import os
 import logging
+import os
 
-GEOIP_DB_PATH = '/usr/local/share/GeoIP/GeoLite2-City.mmdb'
+GEOIP_DB_PATH = "/usr/local/share/GeoIP/GeoLite2-City.mmdb"
 
 LOG_LEVEL = logging.DEBUG
 
