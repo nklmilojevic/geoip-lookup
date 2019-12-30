@@ -2,7 +2,7 @@
 
 # GeoIP Lookup
 
-This is a simple python app that runs Flask, uWSGI and nginx. The server runs on port `8000` and accepts the IP address argument in the URL (either IPv4 or IPv6) and returns json with the data from [Maxmind](https://dev.maxmind.com/geoip/geoip2/downloadable/) database.
+This is a simple python app that runs Flask, uWSGI and nginx. The server runs on port `8080` and accepts the IP address argument in the URL (either IPv4 or IPv6) and returns json with the data from [Maxmind](https://dev.maxmind.com/geoip/geoip2/downloadable/) database.
 
 Example with [httpie](https://httpie.org/):
 
@@ -16,4 +16,4 @@ Example with `curl` and `jq`:
 
 There is an automated build for this repo that goes to CircleCI and pushes the image to Dockerhub. If you don't want to build it yourself, you can just run it like this:
 
-`docker run --name geoip-lookup -d -p 8000:8000 nklmilojevic/geoip-lookup:latest`
+`docker run --name geoip-lookup -d -p 8080:8080 nklmilojevic/geoip-lookup:latest`
