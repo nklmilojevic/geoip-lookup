@@ -1,5 +1,3 @@
-[![CircleCI](https://circleci.com/gh/nklmilojevic/geoip-lookup/tree/master.svg?style=svg&circle-token=d1d9dbe1f33dc6dc5c7d534cfea312dc832928f9)](https://circleci.com/gh/nklmilojevic/geoip-lookup/tree/master)
-
 # GeoIP Lookup
 
 This is a simple python app that runs Flask, uWSGI and nginx. The server runs on port `8080` and accepts the IP address argument in the URL (either IPv4 or IPv6) and returns json with the data from [Maxmind](https://dev.maxmind.com/geoip/geoip2/downloadable/) database.
