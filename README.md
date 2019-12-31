@@ -12,8 +12,6 @@ Example with `curl` and `jq`:
 
 [![asciicast](https://asciinema.org/a/pX9dU9fgjhBJuhivb2mOM9UZR.svg)](https://asciinema.org/a/pX9dU9fgjhBJuhivb2mOM9UZR)
 
-# Docker
+# Maxmind GeoIP changes
 
-There is an automated build for this repo that goes to CircleCI and pushes the image to Dockerhub. If you don't want to build it yourself, you can just run it like this:
-
-`docker run --name geoip-lookup -d -p 8080:8080 nklmilojevic/geoip-lookup:latest`
+[Maxmind has changed their policy so you cannot download the databases without the account.](https://blog.maxmind.com/2019/12/18/significant-changes-to-accessing-and-using-geolite2-databases/). So, you need to register for a MaxMind account and download GeoIP.conf or change the values in `docker/GeoIP.conf`, otherwise it won't work.
